@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CharacterCard(props) {
+function Card(props) {
   return (
     <div
       className={'card ' + (props.Clicked ? 'animate' : '')}
@@ -25,4 +25,4 @@ function CharacterCard(props) {
   );
 }
 
-export default CharacterCard;
+export default Card;

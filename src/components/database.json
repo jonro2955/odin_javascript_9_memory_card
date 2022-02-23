@@ -2,85 +2,109 @@
   {
     "id": 1,
     "clicked": false,
-    "name": "Angelina Jolie Voight",
-    "image": "http://beauty-around.com/images/sampledata/Hollywood_Actress/1Anjelina-Jolie.jpg",
-    "occupation": "Actress, Director"
+    "name": "cake",
+    "image": "http://beauty-around.com/images/sampledata/Hollywood_Actress/1Anjelina-Jolie.jpg"
   },
   {
     "id": 2,
     "clicked": false,
-    "name": "Charlize Theron",
-    "image": "http://beauty-around.com/images/sampledata/Hollywood_Actress/2sharliz.jpg",
-    "occupation": "Model, Actress"
+    "name": "chocolate",
+    "image": "../images/chocolate.webp"
   },
   {
     "id": 3,
     "clicked": false,
-    "name": "Jessica Alba",
-    "image": "http://beauty-around.com/images/sampledata/Hollywood_Actress/3Alba.jpg",
-    "occupation": "Model, Actress"
+    "name": "cookies",
+    "image": "../images/cookies.webp"
   },
   {
     "id": 4,
     "clicked": false,
-    "name": "Megan Denise Fox",
-    "image": "http://beauty-around.com/images/sampledata/Hollywood_Actress/4Megan_Fox.jpg",
-    "occupation": "Model, Actress"
+    "name": "donut",
+    "image": "../images/donut.webp"
   },
   {
     "id": 5,
     "clicked": false,
-    "name": "Keira Knightley",
-    "image": "http://beauty-around.com/images/sampledata/Hollywood_Actress/6Keira_Knightley.jpg",
-    "occupation": "Actress"
+    "name": "fries",
+    "image": "../images/fries.webp"
   },
   {
     "id": 6,
     "clicked": false,
-    "name": "Nina Dobrev",
-    "image": "http://beauty-around.com/images/sampledata/Hollywood_Actress/8nina_Dobrev.jpg",
-    "occupation": "Actress"
+    "name": "hamburger",
+    "image": "../images/hamburger.webp"
   },
   {
     "id": 7,
     "clicked": false,
-    "name": "Maria Bellucci",
-    "image": "http://beauty-around.com/images/sampledata/Hollywood_Actress/9Monica.jpg",
-    "occupation": "Model, Actress"
+    "name": "icecream",
+    "image": "../images/icecream.webp"
   },
   {
     "id": 8,
     "clicked": false,
-    "name": "Justin Bieber",
-    "image": "https://www.justinbiebermusic.com/wp-content/themes/justinbieber2/images/bieber-news.png",
-    "occupation": "Singer"
+    "name": "lasagna",
+    "image": "../images/lasagna.webp"
   },
   {
     "id": 9,
     "clicked": false,
-    "name": "Daddy Yankee",
-    "image": "https://media1.fdncms.com/orlando/imager/u/original/2514354/gal_sel_daddy-yankee-2016.jpg",
-    "occupation": "Singer"
+    "name": "mcflurry",
+    "image": "../images/mcflurry.webp"
   },
   {
     "id": 10,
     "clicked": false,
-    "name": "Sean Paul",
-    "image": "https://www.thepeninsulaqatar.com/uploads/2018/09/20/post_main_cover_fit//1b21da4888de17e14120771c191d5373a06fe9c1.jpg",
-    "occupation": "Singer"
+    "name": "nuggets",
+    "image": "../images/nuggets.webp"
   },
   {
     "id": 11,
     "clicked": false,
-    "name": "Deadpool",
-    "image": "https://vignette.wikia.nocookie.net/marvelmovies/images/6/66/Deadpool_promo.png/revision/latest?cb=20150707202600",
-    "occupation": "Hero"
+    "name": "oreos",
+    "image": "../images/oreos.webp"
   },
   {
     "id": 12,
     "clicked": false,
-    "name": "Sofia Vergara",
-    "image": "https://i.dailymail.co.uk/i/newpix/2018/09/18/20/5017C57300000578-6182201-image-a-100_1537300563965.jpg",
-    "occupation": "Actress"
+    "name": "pickle",
+    "image": "../images/pickle.webp"
+  },
+  {
+    "id": 13,
+    "clicked": false,
+    "name": "pizza",
+    "image": "../images/pizza.webp"
+  },
+  {
+    "id": 14,
+    "clicked": false,
+    "name": "poptart",
+    "image": "../images/poptart.webp"
+  },
+  {
+    "id": 15,
+    "clicked": false,
+    "name": "reese",
+    "image": "../images/reese.webp"
+  },
+  {
+    "id": 16,
+    "clicked": false,
+    "name": "smore",
+    "image": "../images/smore.webp"
+  },
+  {
+    "id": 17,
+    "clicked": false,
+    "name": "tacos",
+    "image": "../images/tacos.webp"
+  },
+  {
+    "id": 18,
+    "clicked": false,
+    "name": "waffles",
+    "image": "../images/waffles.webp"
   }
 ]

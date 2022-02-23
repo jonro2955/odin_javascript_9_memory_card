@@ -3,7 +3,7 @@ A game built using React.
 
 <hr/>
 
-[Live Demo](https://jonro2955.github.io/odin_javascript_8_cv_application/)
+[Live Demo](https://jonro2955.github.io/odin_javascript_9_memory_card/)
 
 ### Focus  
 - React functional components.
