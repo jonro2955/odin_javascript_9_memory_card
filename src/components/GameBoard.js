@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import foodList from './foodList.json';
-import uniqid from 'uniqid';
+import Card from './Card';
 
 // returns a shuffled array of integers 0-num with no duplicates
 function generateRandIntArray(num) {
@@ -18,7 +18,6 @@ function generateRandIntArray(num) {
 }
 
 const GameBoard = () => {
-
   // const [data, setData] = useState(database);
   const [randIntArray, setRandIntArray] = useState(
     generateRandIntArray(foodList.length)
@@ -28,6 +27,10 @@ const GameBoard = () => {
     setRandIntArray(generateRandIntArray(foodList.length));
   };
 
+  const handleClick = (string) => {
+    alert(string);
+  };
+
   useEffect(() => {});
 
   return (
@@ -35,17 +38,14 @@ const GameBoard = () => {
     <div id='GameBoard'>
       <button onClick={randomizeArray}>Randomize</button>
       <div>
-        {randIntArray.map((rand) => {
+        {randIntArray.map((randInt) => {
           return (
-            <div className='card' key={uniqid()}>
-              <img
-                src={foodList[rand].image}
-                alt={foodList[rand].name}
-                width='100'
-                height='100'
-              ></img>
-              <div>{foodList[rand].name}</div>
-            </div>
+            <Card
+              key={foodList[randInt].id}
+              name={foodList[randInt].name}
+              image={foodList[randInt].image}
+              handleClick={handleClick}
+            />
           );
         })}
       </div>

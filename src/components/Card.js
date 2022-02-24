@@ -3,24 +3,16 @@ import React from 'react';
 function Card(props) {
   return (
     <div
-      className={'card ' + (props.Clicked ? 'animate' : '')}
-      onClick={() => props.handleClick(props.id)}
+      className='Card'
+      onClick={() => props.handleClick(props.name)}
     >
-      <div className='img-container'>
-        <img alt={props.name} src={props.image} />
-      </div>
-      <div className='img-content'>
-        <ul>
-          <li>
-            <strong>Name:</strong>
-            {props.name}
-          </li>
-          <li>
-            <strong>Occupation: </strong>
-            {props.occupation}
-          </li>
-        </ul>
-      </div>
+      <img
+        src={props.image}
+        alt={props.name}
+        width='100'
+        height='100'
+      ></img>
+      <div>{props.name}</div>
     </div>
   );
 }
