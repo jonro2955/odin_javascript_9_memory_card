@@ -1,28 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import database from './database.json';
+import foodList from './foodList.json';
 import uniqid from 'uniqid';
 
-// returns a shuffled array of integers 0-17 with no duplicates
-function generateRandArray18() {
-  let array18 = [];
-  for (let i = 0; i < 18; i++) {
-    array18.push(i);
+// returns a shuffled array of integers 0-num with no duplicates
+function generateRandIntArray(num) {
+  let array = [];
+  for (let i = 0; i < num; i++) {
+    array.push(i);
   }
-  for (let i = 0; i < 18; i++) {
-    let j = Math.floor(Math.random() * 18);
-    let temp = array18[i];
-    array18[i] = array18[j];
-    array18[j] = temp;
+  for (let i = 0; i < num; i++) {
+    let j = Math.floor(Math.random() * num);
+    let temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
   }
-  return array18;
+  return array;
 }
 
 const GameBoard = () => {
-  const [data, setData] = useState(database);
-  const [randArray18, setRandArray18] = useState(generateRandArray18());
+
+  // const [data, setData] = useState(database);
+  const [randIntArray, setRandIntArray] = useState(
+    generateRandIntArray(foodList.length)
+  );
 
   const randomizeArray = () => {
-    setRandArray18(generateRandArray18());
+    setRandIntArray(generateRandIntArray(foodList.length));
   };
 
   useEffect(() => {});
@@ -30,21 +33,22 @@ const GameBoard = () => {
   return (
     // show 10 cards at a time, with at least one that hasn't been clicked. If all has been clicked, player has won and game is over.
     <div id='GameBoard'>
+      <button onClick={randomizeArray}>Randomize</button>
       <div>
-        {randArray18.map((rand) => {
+        {randIntArray.map((rand) => {
           return (
             <div className='card' key={uniqid()}>
               <img
-                src={data[rand].image}
-                alt={data[rand].name}
+                src={foodList[rand].image}
+                alt={foodList[rand].name}
                 width='100'
                 height='100'
               ></img>
+              <div>{foodList[rand].name}</div>
             </div>
           );
         })}
       </div>
-      <button onClick={randomizeArray}>Randomize</button>
     </div>
   );
 };

@@ -1,0 +1,122 @@
+[
+  {
+    "id": 0,
+    "clicked": false,
+    "name": "shake",
+    "image": "https://media.giphy.com/media/tJxj7JNR42jyE/giphy.gif"
+  },
+  {
+    "id": 1,
+    "clicked": false,
+    "name": "toast",
+    "image": "https://media.giphy.com/media/eEtcTm7xuF7nq/giphy.gif"
+  },
+  {
+    "id": 2,
+    "clicked": false,
+    "name": "donut",
+    "image": "https://media.giphy.com/media/w6F3eXWKvDuiQ/giphy.gif"
+  },
+  {
+    "id": 3,
+    "clicked": false,
+    "name": "crab",
+    "image": "https://media.giphy.com/media/Xv2PQWUvT3ple/giphy.gif"
+  },
+  {
+    "id": 4,
+    "clicked": false,
+    "name": "pancake",
+    "image": "https://media.giphy.com/media/tETFyLDkYoNmE/giphy.gif"
+  },
+  {
+    "id": 5,
+    "clicked": false,
+    "name": "hotdog",
+    "image": "https://media.giphy.com/media/v5fk0ct2syjJu/giphy.gif"
+  },
+  {
+    "id": 6,
+    "clicked": false,
+    "name": "oreo",
+    "image": "https://media.giphy.com/media/akWoonvV6swIU/giphy.gif"
+  },
+  {
+    "id": 7,
+    "clicked": false,
+    "name": "pizza",
+    "image": "https://media.giphy.com/media/HTViyaNkLck9O/giphy.gif"
+  },
+  {
+    "id": 8,
+    "clicked": false,
+    "name": "cake",
+    "image": "https://media.giphy.com/media/5pkcGPHXfwowg/giphy.gif"
+  },
+  {
+    "id": 9,
+    "clicked": false,
+    "name": "cereal",
+    "image": "https://media.giphy.com/media/JvMoHlI4hFOec/giphy.gif"
+  },
+  {
+    "id": 10,
+    "clicked": false,
+    "name": "sushi",
+    "image": "https://media.giphy.com/media/tQtrybY256OEE/giphy.gif"
+  },
+  {
+    "id": 11,
+    "clicked": false,
+    "name": "burger",
+    "image": "https://media.giphy.com/media/kEgrbFpY2ViBG/giphy.gif"
+  },
+  {
+    "id": 12,
+    "clicked": false,
+    "name": "waffles",
+    "image": "https://media.giphy.com/media/13NBiMh0Z7pqta/giphy.gif"
+  },
+  {
+    "id": 13,
+    "clicked": false,
+    "name": "egg",
+    "image": "https://media.giphy.com/media/10MpBRVSPAeOfC/giphy.gif"
+  },
+  {
+    "id": 14,
+    "clicked": false,
+    "name": "icecream",
+    "image": "https://media.giphy.com/media/jzRpCYH2S0mEo/giphy.gif"
+  },
+  {
+    "id": 15,
+    "clicked": false,
+    "name": "lasagna",
+    "image": "https://media.giphy.com/media/rvpypEWnQyvUA/giphy.gif"
+  },
+  {
+    "id": 16,
+    "clicked": false,
+    "name": "smore",
+    "image": "https://media.giphy.com/media/4tplmD8QGemmA/giphy.gif"
+  },
+  {
+    "id": 17,
+    "clicked": false,
+    "name": "taco",
+    "image": "https://media.giphy.com/media/cn7zlS5uWSvkY/giphy.gif"
+  },
+  {
+    "id": 18,
+    "clicked": false,
+    "name": "chowmein",
+    "image": "https://media.giphy.com/media/kbK44WpqRvi1y/giphy.gif"
+  },
+  {
+    "id": 19,
+    "clicked": false,
+    "name": "chocolate",
+    "image": "https://media.giphy.com/media/zhMFWEYXtur0k/giphy.gif"
+  }
+]
