@@ -1,0 +1,30 @@
+#root {
+  width: 100%;
+  height: 100%;
+}
+#App {
+  border: 1px black solid;
+}
+#Header {
+  background-color: blanchedalmond;
+}
+#Instruction {
+  background-color: aquamarine;
+}
+#ScoreBoard {
+  background-color: bisque;
+}
+#MessageBoard {
+  background-color: beige;
+}
+#GameBoard {
+  background-color: antiquewhite;
+}
+#cardGrid {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+.cardImage {
+  width: 20vw;
+  height: 20vw;
+}

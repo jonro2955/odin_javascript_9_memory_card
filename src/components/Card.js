@@ -2,17 +2,15 @@ import React from 'react';
 
 function Card(props) {
   return (
-    <div
-      className='Card'
-      onClick={() => props.handleClick(props.name)}
-    >
+    <div id='Card'>
       <img
-        src={props.image}
-        alt={props.name}
-        width='100'
-        height='100'
+        id={props.id}
+        className='cardImage'
+        src={props.imageURL}
+        alt={props.foodName}
+        onClick={(e) => props.onClickFunction(e.target)}
       ></img>
-      <div>{props.name}</div>
+      <div className='cardName'>{props.foodName}</div>
     </div>
   );
 }
