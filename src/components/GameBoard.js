@@ -1,68 +1,136 @@
 import React, { useState, useEffect, useRef } from 'react';
-import foodList from './foodList.json';
+import foodDatabase from './foodDatabase.json';
 import Card from './Card';
 
 const GameBoard = () => {
-  const isInitialMount = useRef(true);
-
-  /* Initialize menu as an array of 10 shuffled integers.
-  The menu determines which 10 food items in foodList is displayed */
-  const [menu, setMenu] = useState(
-    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-    // generateTenShuffledIntegers0To(foodList.length)
+  //useRef hook allows you to store values that persists between renders, unlike useState
+  const initialMount = useRef(true);
+  /* "screenMenu" state is an array of 10 id picks from foodDatabase. */
+  const [screenMenu, setScreenMenu] = useState(
+    generateTenShuffledPicks(foodDatabase.length)
   );
 
-  const shuffleMenu = () => {
-    //shuffle only if there is unclicked item left in foodList
-    if (!allJsonFoodClicked(foodList)) {
-      let newMenu = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-      // if (menuAllClicked(newMenu, foodList)) {
-      //   alert('All clicked');
-      //   newMenu = generateTenShuffledIntegers0To(foodList.length);
-      // }
-      //create a temporary new menu array
-      // let newMenu = generateTenShuffledIntegers0To(foodList.length);
-      //while the new temp menu has all clicked items, generate a new one to make sure it has an unclicked
-      while (menuAllClicked(newMenu, foodList)) {
-        newMenu = generateTenShuffledIntegers0To(foodList.length);
-      }
-      setMenu(newMenu);
-    }
-  };
-
-  const cardClickFunction = (clickTarget) => {
-    if (clickTarget.dataset.clicked == 'false') {
-      console.log('\nPoint!\n');
-      foodList[clickTarget.id].clicked = true;
-      shuffleMenu();
-    }
-    if (clickTarget.dataset.clicked == 'true') {
-      console.log('\nGameover, restart!\n');
-    }
-  };
-
+  // useEffect()
   useEffect(() => {
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
+    if (initialMount.current) {
+      //code to run on mount
+      initialMount.current = false;
     } else {
-      // Your useEffect code here to be run on update
-      console.log('menuAllClicked: ', menuAllClicked(menu, foodList));
+      // code to run only on dependency updates
+      printUnclickedItemsOnScreen(screenMenu);
     }
-  }, [menu]);
+  }, [screenMenu]);
+
+  function cardClickFunction(clickTarget) {
+    if (clickTarget.dataset.clicked === 'false') {
+      /****************************************
+       * clicked on unclicked food
+       ****************************************/
+      foodDatabase[clickTarget.id].clicked = true;
+      // ScoreBoard: add 1 point to streak
+      //check win
+      if (allDatabaseItemsClicked()) {
+        console.log('Win!');
+        //MessageBoard: announce win
+      } else {
+        shuffleScreenMenu();
+      }
+    }
+    if (clickTarget.dataset.clicked === 'true') {
+      /****************************************
+       * click on clicked food
+       ****************************************/
+      console.log('\nGameover, restart!\n');
+      //MessageBoard: announce restart
+      //ScoreBoard: update high score to current streak if streak is higher
+      //ScoreBoard: reset streak to 0
+    }
+  }
+
+  //Log which screenmenu items hasn't been clicked
+  function printUnclickedItemsOnScreen(array) {
+    let unclickedScreenMenuSubset = array.filter((num) => {
+      return !foodDatabase[num].clicked;
+    });
+    console.log(
+      '\n\nUnclicked items on screen: ',
+      unclickedScreenMenuSubset.length
+    );
+    unclickedScreenMenuSubset.forEach((num) => {
+      console.log(foodDatabase[num].name);
+    });
+    console.log(
+      'Unclicked items in database: ',
+      foodDatabaseUnclickedSubset().length
+    );
+  }
+
+  //returns an array containing 10 integers 0-limit shuffled
+  function generateTenShuffledPicks(limit) {
+    let array = [];
+    for (let i = 0; i < limit; i++) {
+      array.push(i);
+    }
+    /*switch the item at each consecutive index position with one at a 
+    ramdomly selected index position*/
+    for (let i = 0; i < limit; i++) {
+      let randomIndex = Math.floor(Math.random() * limit);
+      let temp = array[i];
+      array[i] = array[randomIndex];
+      array[randomIndex] = temp;
+    }
+    //reduce it to first 10 items
+    return array.slice(0, 10);
+  }
+
+  /*shuffle screen menu by setting screenMenu state to generateTenShuffledPicks 
+  containing at least one unclicked number */
+  function shuffleScreenMenu() {
+    //First make sure there is an unclicked item left in foodDatabase
+    if (!allDatabaseItemsClicked()) {
+      let tempArray;
+      do {
+        console.log('\n************Shuffle!************\n');
+        tempArray = generateTenShuffledPicks(foodDatabase.length);
+      } while (arrayAllClicked(tempArray));
+      setScreenMenu(tempArray);
+    }
+  }
+
+  //returns true if all foodDatabase items are clicked
+  function allDatabaseItemsClicked() {
+    return foodDatabase.every((food) => {
+      return food.clicked;
+    });
+  }
+
+  //returns number Of Database Items Unclicked
+  function foodDatabaseUnclickedSubset() {
+    return foodDatabase.filter((food) => {
+      return !food.clicked;
+    });
+  }
+
+  //returns true if passed in array's numbers are all clicked
+  function arrayAllClicked(numArray) {
+    return numArray.every((i) => {
+      return foodDatabase[i].clicked === true;
+    });
+  }
 
   return (
-    // show 10 cards at a time, with at least one that hasn't been clicked. If all has been clicked, player has won and game is over.
     <div id='GameBoard'>
-      <button onClick={shuffleMenu}>Randomize</button>
+      <button onClick={shuffleScreenMenu}>Randomize</button>
       <div id='cardGrid'>
-        {menu.map((pickNum) => {
+        {/* screenMenu array determines foods shown on screen */}
+        {screenMenu.map((num) => {
           return (
             <Card
-              key={foodList[pickNum].index}
-              foodIndex={foodList[pickNum].index}
-              foodName={foodList[pickNum].name}
-              imageURL={foodList[pickNum].image}
-              clickStatus={foodList[pickNum].clicked}
+              key={foodDatabase[num].index}
+              foodIndex={foodDatabase[num].index}
+              foodName={foodDatabase[num].name}
+              imageURL={foodDatabase[num].image}
+              clickStatus={foodDatabase[num].clicked}
               onClickFunction={cardClickFunction}
             />
           );
@@ -73,42 +141,3 @@ const GameBoard = () => {
 };
 
 export default GameBoard;
-
-/* Create a shuffled array of integers 0-num with no duplicates, 
-  then return a subset array with only the first 10 items*/
-function generateTenShuffledIntegers0To(num) {
-  let array = [];
-  for (let i = 0; i < num; i++) {
-    array.push(i);
-  }
-  /*switch the item at each consecutive index position with one at a 
-    ramdomly selected index position*/
-  for (let i = 0; i < num; i++) {
-    let randomIndex = Math.floor(Math.random() * num);
-    let temp = array[i];
-    array[i] = array[randomIndex];
-    array[randomIndex] = temp;
-  }
-  return array.slice(0, 10);
-}
-
-// Tester to return true if all items in foodList.json is clicked
-const allJsonFoodClicked = (jsonList) => {
-  return jsonList.every((food) => {
-    return food.clicked;
-  });
-};
-
-/**Tester to see if input menu has all clicked items in jsonList */
-const menuAllClicked = (menu, jsonList) => {
-  return menu.every((i) => {
-    return jsonList[i].clicked === true;
-  });
-};
-
-/**Tester to see if input menu has some unclicked items in jsonList */
-const menuHasUnclickedItems = (menu, jsonList) => {
-  return menu.some((i) => {
-    return jsonList[i].clicked === false;
-  });
-};
