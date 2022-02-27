@@ -1,9 +1,9 @@
 import React from 'react';
 
-const MessageBoard = () => {
+const MessageBoard = (props) => {
   return (
     <div id='MessageBoard'>
-      <h1>Click an image to begin.</h1>
+      <h1>{props.message}</h1>
     </div>
   );
 };

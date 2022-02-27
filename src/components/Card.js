@@ -5,13 +5,13 @@ function Card(props) {
     <div id='Card'>
       <img
         className='cardImage'
-        id={props.foodIndex}
-        src={props.imageURL}
-        alt={props.foodName}
-        data-clicked={props.clickStatus}
-        onClick={(e) => props.onClickFunction(e.target)}
+        id={props.index}
+        src={props.image}
+        alt={props.name}
+        data-clicked={props.clicked}
+        onClick={(e) => props.cardClickHandler(e.target)}
       ></img>
-      <div className='cardName'>{props.foodName}</div>
+      <div className='cardName'>{props.name}</div>
     </div>
   );
 }
