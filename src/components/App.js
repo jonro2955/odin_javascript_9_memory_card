@@ -4,6 +4,7 @@ import Header from './Header.js';
 import ScoreBoard from './ScoreBoard.js';
 import MessageBoard from './MessageBoard.js';
 import Card from './Card.js';
+import CheatBox from './CheatBox.js';
 
 const allClicked = (list) => {
   return list.every((item) => {
@@ -31,7 +32,8 @@ const shuffledSubMenu = (baseMenu) => {
 const App = () => {
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
-  const [message, setMessage] = useState('Click an image to begin.');
+  const [cheatData, setCheatData] = useState('');
+  const [message, setMessage] = useState('Click on an image to begin.');
   const [screenMenu, setScreenMenu] = useState(shuffledSubMenu(foodDatabase));
   const initialMount = useRef(true);
 
@@ -44,6 +46,9 @@ const App = () => {
           item.clicked = true;
         }
       });
+      //update cheatData
+      let cheatString = cheatData + clickTarget.alt.toUpperCase() + ', ';
+      setCheatData(cheatString);
       //increment current score
       let newScore = currentScore === 20 ? 1 : currentScore + 1;
       setCurrentScore(newScore);
@@ -55,18 +60,16 @@ const App = () => {
         });
         setScreenMenu(shuffledSubMenu(foodDatabase));
         setHighScore(20);
-        /**Todo:
-         * scores management after winning
-         */
+        setCheatData('');
       } else {
         //not won yet
         setMessage(`You clicked a new item: ${clickTarget.alt.toUpperCase()}`);
         setScreenMenu(shuffledSubMenu(foodDatabase));
-        /**Todo : capitalize food item text on messageBoard */
       }
     }
+    //if re-clicked on clicked item (lost)
     if (clickTarget.dataset.clicked === 'true') {
-      //If lost
+      //Restart message
       setMessage(
         `Uh oh! You clicked ${clickTarget.alt.toUpperCase()} twice. You must now restart. Click an image to begin again.`
       );
@@ -81,6 +84,7 @@ const App = () => {
         item.clicked = false;
       });
       setScreenMenu(shuffledSubMenu(foodDatabase));
+      setCheatData('');
     }
   };
 
@@ -110,6 +114,7 @@ const App = () => {
           />
         ))}
       </div>
+      <CheatBox cheatData={cheatData}/>
     </div>
   );
 };

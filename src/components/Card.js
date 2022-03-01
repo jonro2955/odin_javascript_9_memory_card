@@ -11,7 +11,7 @@ function Card(props) {
         data-clicked={props.clicked}
         onClick={(e) => props.cardClickHandler(e.target)}
       ></img>
-      <div className='cardName'>{props.name.toUpperCase() + ' ' + props.clicked}</div>
+      <div>{props.name.toUpperCase()}</div>
     </div>
   );
 }

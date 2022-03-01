@@ -1,46 +1,70 @@
+body {
+  background-color: bisque;
+}
 #root {
   width: 100%;
   height: 100%;
 }
 #App {
-  border: 1px black solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 #Header {
-  background-color: blanchedalmond;
   text-align: center;
 }
 #Instruction {
   background-color: aquamarine;
 }
 #ScoreBoard {
-  background-color: bisque;
+  text-align: center;
+}
+#MessageBoard {
+  text-align: center;
+}
+#cardGrid {
+  margin: auto;
+  width: 77vw;
+  height: 33vw;
+  gap: 0px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-template-rows: auto auto;
+  /* border: 1px black solid; */
+}
+.card {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
-  gap: 25px;
-}
-#MessageBoard {
-  background-color: beige;
-  text-align: center;
-}
-#GameBoard {
-  background-color: antiquewhite;
-}
-#cardGrid {
-  gap:0px;
-  display: grid;
-  grid-template-columns: auto auto auto auto auto;
-  border: 1px black solid;
-}
-.card{
-    display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-
+  position: relative;
 }
 .cardImage {
   width: 15vw;
   height: 15vw;
+  border: 1px black solid;
+}
+.cardInfo {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.cardClicked {
+  position: absolute;
+  margin-top: 20px;
+}
+#CheatBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 25px;
+}
+#cheatText {
+  display: none;
+  margin-top: 25px;
+  background-color: aquamarine;
 }
