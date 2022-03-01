@@ -10,7 +10,7 @@ const CheatBox = (props) => {
 
   return (
     <div id='CheatBox'>
-      <button onClick={cheatActivator}>Toggle Cheat</button>
+      <button onClick={cheatActivator}>Toggle Cheat Mode</button>
       <div id='cheatText'>Clicked Items: {props.cheatData}</div>
     </div>
   );

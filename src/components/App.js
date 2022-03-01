@@ -47,7 +47,7 @@ const App = () => {
         }
       });
       //update cheatData
-      let cheatString = cheatData + clickTarget.alt.toUpperCase() + ', ';
+      let cheatString = cheatData + clickTarget.alt.toUpperCase() + ' ';
       setCheatData(cheatString);
       //increment current score
       let newScore = currentScore === 20 ? 1 : currentScore + 1;
@@ -114,7 +114,7 @@ const App = () => {
           />
         ))}
       </div>
-      <CheatBox cheatData={cheatData}/>
+      <CheatBox cheatData={cheatData} />
     </div>
   );
 };

@@ -11,10 +11,6 @@ const Header = () => {
         <div>
           There are a total of 20 items, but only 10 are randomly shown.
         </div>
-        <div>
-          To win, you must click all 20 items only once by memorizing what
-          you've clicked.
-        </div>
       </div>
     </div>
   );

@@ -19,9 +19,13 @@ body {
 }
 #ScoreBoard {
   text-align: center;
+  font-size: 25px;
+  font-weight: 900;
 }
 #MessageBoard {
   text-align: center;
+  font-size: 25px;
+  font-weight: 900;
 }
 #cardGrid {
   margin: auto;
@@ -36,21 +40,18 @@ body {
 .card {
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: column;
-  position: relative;
+  /* position: relative; */
+  /* border: 1px black solid; */
 }
 .cardImage {
-  width: 15vw;
-  height: 15vw;
-  border: 1px black solid;
+  width: 14vw;
+  height: 14vw;
 }
 .cardInfo {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  font-size: 25px;
+  font-weight: 900;
 }
 .cardClicked {
   position: absolute;
