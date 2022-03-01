@@ -1,6 +1,6 @@
 # Memory Card Game
 
-A game built using React. Rules: The goal of this game is to click all items no more than once. There are a total of 20 items, but only 10 randomly selected items are shown on screen at any one time. To win, you must click all 20 items only once by memorizing what you've clicked. Clicking an item twice will result in an automatic restart. Game data are stored and updated using react's component states.
+This project is a game built using React from [The Odin Project](https://www.theodinproject.com/). The goal is to demonstrate my understanding of of ReactJS functional components, hooks, state management and lifecycle methods.
 
 <hr/>
 
