@@ -7,24 +7,40 @@
 }
 #Header {
   background-color: blanchedalmond;
+  text-align: center;
 }
 #Instruction {
   background-color: aquamarine;
 }
 #ScoreBoard {
   background-color: bisque;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 25px;
 }
 #MessageBoard {
   background-color: beige;
+  text-align: center;
 }
 #GameBoard {
   background-color: antiquewhite;
 }
 #cardGrid {
+  gap:0px;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
+  border: 1px black solid;
+}
+.card{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
 }
 .cardImage {
-  width: 20vw;
-  height: 20vw;
+  width: 15vw;
+  height: 15vw;
 }

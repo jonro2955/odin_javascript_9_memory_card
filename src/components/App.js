@@ -5,16 +5,26 @@ import ScoreBoard from './ScoreBoard.js';
 import MessageBoard from './MessageBoard.js';
 import Card from './Card.js';
 
+const allClicked = (list) => {
+  return list.every((item) => {
+    return item.clicked;
+  });
+};
+
 const shuffledSubMenu = (baseMenu) => {
   let copy = baseMenu;
-  /*swap item at each index with another at a ramdomly selected index*/
-  for (let i = 0; i < baseMenu.length; i++) {
-    let randomIndex = Math.floor(Math.random() * baseMenu.length);
-    let swap = copy[i];
-    copy[i] = copy[randomIndex];
-    copy[randomIndex] = swap;
+  if (!allClicked(copy)) {
+    //do while: shuffle untill the first 10 items has an unclicked item
+    do {
+      //shuffling: swap an item at each index with another at a ramdom index
+      for (let i = 0; i < baseMenu.length; i++) {
+        let randomIndex = Math.floor(Math.random() * baseMenu.length);
+        let swap = copy[i];
+        copy[i] = copy[randomIndex];
+        copy[randomIndex] = swap;
+      }
+    } while (allClicked(copy.slice(0, 10)));
   }
-  //return only the first 10 items
   return copy.slice(0, 10);
 };
 
@@ -22,31 +32,43 @@ const App = () => {
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [message, setMessage] = useState('Click an image to begin.');
-  const [baseMenu, setBaseMenu] = useState(foodDatabase);
   const [screenMenu, setScreenMenu] = useState(shuffledSubMenu(foodDatabase));
   const initialMount = useRef(true);
 
   const cardClickHandler = (clickTarget) => {
+    //if clicked on unclicked item
     if (clickTarget.dataset.clicked === 'false') {
-      //increment current score
-      setCurrentScore(currentScore + 1);
-      //display clicked in Message component
-      setMessage(`You clicked a new item: ${clickTarget.alt}`);
-      //update baseMenu indirectly
-      let baseMenuCopy = baseMenu;
-      baseMenuCopy.forEach((item) => {
+      //mark the clicked item as clicked in foodDatabase
+      foodDatabase.forEach((item) => {
         if (item.name === clickTarget.alt) {
           item.clicked = true;
         }
       });
-      setBaseMenu(baseMenuCopy);
-      //shuffle the screenMenu using baseMenuCopy
-      setScreenMenu(shuffledSubMenu(baseMenuCopy));
+      //increment current score
+      let newScore = currentScore === 20 ? 1 : currentScore + 1;
+      setCurrentScore(newScore);
+      /*Check for win:*/
+      if (allClicked(foodDatabase)) {
+        setMessage('You win!!! To play again, simply click an image.');
+        foodDatabase.forEach((item) => {
+          item.clicked = false;
+        });
+        setScreenMenu(shuffledSubMenu(foodDatabase));
+        setHighScore(20);
+        /**Todo:
+         * scores management after winning
+         */
+      } else {
+        //not won yet
+        setMessage(`You clicked a new item: ${clickTarget.alt.toUpperCase()}`);
+        setScreenMenu(shuffledSubMenu(foodDatabase));
+        /**Todo : capitalize food item text on messageBoard */
+      }
     }
     if (clickTarget.dataset.clicked === 'true') {
-      //MessageBoard: announce restart
+      //If lost
       setMessage(
-        `Uh oh! You clicked ${clickTarget.alt} twice. You must now restart. Click an image to begin again.`
+        `Uh oh! You clicked ${clickTarget.alt.toUpperCase()} twice. You must now restart. Click an image to begin again.`
       );
       //ScoreBoard: update high score to current score if it is higher
       if (currentScore > highScore) {
@@ -54,14 +76,11 @@ const App = () => {
       }
       //ScoreBoard: reset currentScore to 0
       setCurrentScore(0);
-      /********************************************* */
-      /**Problem Area:  */
-      //Reset baseMenu to orginal
-      setBaseMenu(foodDatabase);
-      //Reshuffle screenMenu
+      //Reset foodDatabase to orginal and reshuffle
+      foodDatabase.forEach((item) => {
+        item.clicked = false;
+      });
       setScreenMenu(shuffledSubMenu(foodDatabase));
-
-      /********************************************* */
     }
   };
 
@@ -72,7 +91,7 @@ const App = () => {
     } else {
       // code to run only on dependency updates
     }
-  }, [baseMenu]);
+  }, [screenMenu]);
 
   return (
     <div id='App'>
