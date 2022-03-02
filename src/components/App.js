@@ -55,6 +55,7 @@ const App = () => {
       /*Check for win:*/
       if (allClicked(foodDatabase)) {
         setMessage('You win!!! To play again, simply click an image.');
+        //reset foodDatabase
         foodDatabase.forEach((item) => {
           item.clicked = false;
         });
@@ -94,6 +95,12 @@ const App = () => {
       initialMount.current = false;
     } else {
       // code to run only on dependency updates
+      console.log('\nUnclicked items on screen:');
+      screenMenu.forEach((food) => {
+        if (!food.clicked) {
+          console.log(food.name);
+        }
+      });
     }
   }, [screenMenu]);
 

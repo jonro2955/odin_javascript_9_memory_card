@@ -37,21 +37,16 @@ body {
   grid-template-rows: auto auto;
   /* border: 1px black solid; */
 }
-.card {
-  display: flex;
-  align-items: center;
-  /* justify-content: center; */
-  flex-direction: column;
-  /* position: relative; */
-  /* border: 1px black solid; */
-}
 .cardImage {
   width: 14vw;
   height: 14vw;
 }
 .cardInfo {
-  font-size: 25px;
-  font-weight: 900;
+  /* position: absolute; */
+  text-align: center;
+  z-index: 1;
+  font-size: 1vw;
+  /* font-weight: bold; */
 }
 .cardClicked {
   position: absolute;
@@ -68,4 +63,5 @@ body {
   display: none;
   margin-top: 25px;
   background-color: aquamarine;
+  font-size: 1vw;
 }
