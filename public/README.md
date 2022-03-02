@@ -1,6 +1,6 @@
 # Memory Card Game
 
-This project is a game built using React from [The Odin Project](https://www.theodinproject.com/). The goal is to demonstrate my understanding of of ReactJS functional components, hooks, state management and lifecycle methods.
+This project is a game built using React from [The Odin Project](https://www.theodinproject.com/). The goal is to demonstrate my understanding of ReactJS functional components, hooks, state management and lifecycle methods.
 
 <hr/>
 
@@ -9,10 +9,10 @@ This project is a game built using React from [The Odin Project](https://www.the
 ### Focus
 
 - React functional components.
-- Comparing the similarities and differences between React's class components and functional components
-- Implementing states and props in functional components
-- React functional component hooks: useState, useEffect, useRef
-- Managing component lifecycle events with useEffect and its dependency array
+- Comparing the similarities and differences between React's class components and functional components.
+- Implementing states and props in functional components.
+- React functional component hooks: useState, useEffect, useRef.
+- Managing component lifecycle events with useEffect and its dependency array.
 
 ### Tools
 
