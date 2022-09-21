@@ -1,10 +1,10 @@
 # Memory Card Game
 
+[Live Site](https://jonro2955.github.io/odin_javascript_9_memory_card/)
+
 This project is a game built using React from [The Odin Project](https://www.theodinproject.com/). The goal is to demonstrate my understanding of ReactJS functional components, hooks, state management and lifecycle methods.
 
 <hr/>
-
-[Live Demo](https://jonro2955.github.io/odin_javascript_9_memory_card/)
 
 ### Focus
 
