@@ -4,9 +4,7 @@
 
 This project is a game built using React from [The Odin Project](https://www.theodinproject.com/). The goal is to demonstrate my understanding of ReactJS functional components, hooks, state management and lifecycle methods.
 
-<hr/>
-
-### Focus
+### Focus Areas
 
 - React functional components.
 - Comparing the similarities and differences between React's class components and functional components.
