@@ -2,9 +2,9 @@
 
 # [Live Site](https://jonro2955.github.io/odin_javascript_9_memory_card/)
 
-This project is a game built using React from [The Odin Project](https://www.theodinproject.com/). The goal is to demonstrate my understanding of ReactJS functional components, hooks, state management and lifecycle methods.
+This project is a game built using React. The goal is to demonstrate my understanding of ReactJS functional components, hooks, state management and lifecycle methods.
 
-### Focus Areas
+### Learning Objectives
 
 - React functional components.
 - Comparing the similarities and differences between React's class components and functional components.
